@@ -68,8 +68,32 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun deleteAlamat(id: String) {
-       @TODO
+       RetrofitClient.instance.deleteAlamatDetail(id)
+            .enqueue(object: Callback<com.example.alamat_user.data.Response> {
+                override fun onResponse(
+                    call: Call<com.example.alamat_user.data.Response>,
+                    response: Response<com.example.alamat_user.data.Response>
+                ) {
+                    if (response.code() == 200) {
+                        val resp = response.body()
+                        if (resp!!.error) Toast.makeText(this@DetailActivity, resp.message + ", please try again later", Toast.LENGTH_LONG).show()
+                        else {
+                            Toast.makeText(this@DetailActivity, resp.message, Toast.LENGTH_SHORT).show()
 
-       //Bagian vita
+                            startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+
+                            this@DetailActivity.finish()
+                        }
+                    } else {
+                        Toast.makeText(this@DetailActivity, "Something wrong on server", Toast.LENGTH_LONG).show()
+                        Log.d("DELETE ALAMAT (${response.code()})", response.body().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<com.example.alamat_user.data.Response>, t: Throwable) {
+                    Toast.makeText(this@DetailActivity, "Something wrong on server...", Toast.LENGTH_LONG).show()
+                    Log.d("DELETE ADDRESS FAIL", t.toString())
+                }
+            })
     }
 }
