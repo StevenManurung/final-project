@@ -6,6 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/darkblue"
+            app:popupTheme="@style/Alamat_user.PopupOverlay"
+            app:title="Ubah Alamat"
+            app:titleTextColor="#fafafa" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 </LinearLayout>
