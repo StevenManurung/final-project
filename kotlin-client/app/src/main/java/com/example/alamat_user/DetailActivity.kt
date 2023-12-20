@@ -38,9 +38,33 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun retrieveAlamatDetail(id: String) {
-      @TODO
+      RetrofitClient.instance.getAlamatDetail(id)
+            .enqueue(object: Callback<AlamatDetail> {
+                override fun onResponse(call: Call<AlamatDetail>, response: Response<AlamatDetail>) {
+                    if (response.code() == 200) {
+                        list = response.body()!!
+                        Log.d("GET ALAMAT DETAIL", list.toString())
 
-      //Bagian vita
+                        binding.tvNama.text = list.nama
+                        binding.tvNohp.text = list.nohp.toString()
+                        binding.tvProvinsi.text = list.provinsi
+                        binding.tvKota.text = list.kota
+                        binding.tvKecamatan.text = list.kecamatan
+                        binding.tvKodepos.text = list.kodepos.toString()
+                        binding.tvNamajalan.text = list.namajalan
+                        binding.tvDetailalamat.text = list.detailalamat
+
+                    } else {
+                        Toast.makeText(this@DetailActivity, "Fail fetching from database response is not 200", Toast.LENGTH_LONG).show()
+                        Log.d("GET ALAMAT ITEMS FAIL ${response.code()}", response.body().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<AlamatDetail>, t: Throwable) {
+                    Toast.makeText(this@DetailActivity, "Fail fetching from database onFailure", Toast.LENGTH_LONG).show()
+                    Log.d("GET ALAMAT ITEMS FAIL", t.toString())
+                }
+            })
     }
 
     private fun deleteAlamat(id: String) {
