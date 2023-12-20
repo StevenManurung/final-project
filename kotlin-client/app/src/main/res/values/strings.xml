@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">alamat_user</string>
+    <string name="tambah">Tambah</string>
+    <string name="alamatdetail">Alamatdetail</string>
+    <string name="namajalan">Namajalan</string>
+    <string name="kodepos">Kodepos</string>
+    <string name="kecamatan">Kecamatan</string>
+    <string name="kota">Kota</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="nohp">Nohp</string>
+    <string name="nama">Nama</string>
+    <string name="tambahalamat">Tambah Alamat</string>
+    <string name="nama_jalan_gedung_no_rumah">Nama Jalan, Gedung, No. Rumah</string>
+    <string name="detail_lainnya_cth_blok_unit_no_patokan">Detail Lainnya (Cth: Blok / Unit No., Patokan)</string>
+</resources>
