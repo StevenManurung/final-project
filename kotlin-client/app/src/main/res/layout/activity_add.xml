@@ -19,8 +19,8 @@
             app:title="Tambah Alamat"
             app:titleTextColor="#fafafa" />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
+    
+     <TextView
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
-        android:text="No Hp"
+        android:text="No Handphone"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 

@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val id: String = intent.getStringExtra("idAlamat").toString()
+        val id = intent.getStringExtra("idAlamat").toString()
 
         retrieveAlamatDetail(id)
 
@@ -37,6 +37,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    // Membuat fungsi untuk mengambil detail dari data alamat
     private fun retrieveAlamatDetail(id: String) {
       RetrofitClient.instance.getAlamatDetail(id)
             .enqueue(object: Callback<AlamatDetail> {
@@ -67,6 +68,8 @@ class DetailActivity : AppCompatActivity() {
             })
     }
 
+
+    // Membuat fungsi menghapus alamat dengan mengambil id
     private fun deleteAlamat(id: String) {
        RetrofitClient.instance.deleteAlamatDetail(id)
             .enqueue(object: Callback<com.example.alamat_user.data.Response> {
