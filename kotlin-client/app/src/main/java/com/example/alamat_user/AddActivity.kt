@@ -63,9 +63,35 @@ class AddActivity : AppCompatActivity() {
 
         if (inputNama.isNotEmpty() && inputNohp.isNotEmpty() && inputProvinsi.isNotEmpty() && inputKota.isNotEmpty()
             && inputKecamatan.isNotEmpty() && inputKodepos.isNotEmpty() && inputNamajalan.isNotEmpty() && inputDetailalamat.isNotEmpty()) {
-            @TODO
-            
-            //deza
+            RetrofitClient.instance.addAlamatDetail(inputNama, inputNohp, inputProvinsi, inputKota, inputKecamatan,
+                inputKodepos, inputNamajalan, inputDetailalamat)
+                .enqueue(object: Callback<Response> {
+                    override fun onResponse(
+                        call: Call<Response>,
+                        response: retrofit2.Response<Response>
+                    ) {
+                        if (response.code() == 200) {
+                            val resp = response.body()
+                            if (resp!!.error) Toast.makeText(this@AddActivity, resp.message + ", please try again later", Toast.LENGTH_LONG).show()
+
+                            else {
+                                Toast.makeText(this@AddActivity, resp.message, Toast.LENGTH_SHORT).show()
+
+                                startActivity(Intent(this@AddActivity, MainActivity::class.java))
+
+                                this@AddActivity.finish()
+                            }
+                        } else {
+                            Toast.makeText(this@AddActivity, "Something wrong on server", Toast.LENGTH_LONG).show()
+                            Log.d("ADD ALAMAT (${response.code()})", response.body().toString())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Response>, t: Throwable) {
+                        Toast.makeText(this@AddActivity, "Something wrong on server...", Toast.LENGTH_LONG).show()
+                        Log.d("ADD ADDRESS FAIL", t.toString())
+                    }
+                })
         } else {
             Toast.makeText(this@AddActivity, "Fail adding address data, field(s) is empty!", Toast.LENGTH_LONG).show()
         }

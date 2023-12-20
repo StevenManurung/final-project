@@ -53,8 +53,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun retrieveAlamatt() {
-      @TODO
+      RetrofitClient.instance.getAlamatt()
+            .enqueue(object: Callback<ArrayList<AlamatItem>> {
+                override fun onResponse(call: Call<ArrayList<AlamatItem>>, response: Response<ArrayList<AlamatItem>>) {
+                    if (response.code() == 200) {
+                        val list = response.body()
+                        Log.d("MENDAPATKAN ITEM ALAMAT", list.toString())
 
-      // Bagian Dohan
+                        if (list!!.isEmpty()) {
+                            Toast.makeText(this@MainActivity, "There is no address data to display", Toast.LENGTH_LONG).show()
+                        } else {
+                            buildAlamatList(list)
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "Fail fetching from database response is not 200", Toast.LENGTH_LONG).show()
+                        Log.d("GAGAL MENDAPATKAN ITEM ALAMAT${response.code()}", response.body().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<AlamatItem>>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "Fail fetching from database onFailure", Toast.LENGTH_LONG).show()
+                    Log.d("GAGAL MENDAPATKAN ITEM ALAMAT", t.toString())
+                }
+            })
     }
 }

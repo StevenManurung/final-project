@@ -39,16 +39,64 @@ class DetailActivity : AppCompatActivity() {
 
     // Membuat fungsi untuk mengambil detail dari data alamat
     private fun retrieveAlamatDetail(id: String) {
-      @TODO
+      RetrofitClient.instance.getAlamatDetail(id)
+            .enqueue(object: Callback<AlamatDetail> {
+                override fun onResponse(call: Call<AlamatDetail>, response: Response<AlamatDetail>) {
+                    if (response.code() == 200) {
+                        list = response.body()!!
+                        Log.d("GET ALAMAT DETAIL", list.toString())
 
-      //Bagian vita
+                        binding.tvNama.text = list.nama
+                        binding.tvNohp.text = list.nohp.toString()
+                        binding.tvProvinsi.text = list.provinsi
+                        binding.tvKota.text = list.kota
+                        binding.tvKecamatan.text = list.kecamatan
+                        binding.tvKodepos.text = list.kodepos.toString()
+                        binding.tvNamajalan.text = list.namajalan
+                        binding.tvDetailalamat.text = list.detailalamat
+
+                    } else {
+                        Toast.makeText(this@DetailActivity, "Fail fetching from database response is not 200", Toast.LENGTH_LONG).show()
+                        Log.d("GET ALAMAT ITEMS FAIL ${response.code()}", response.body().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<AlamatDetail>, t: Throwable) {
+                    Toast.makeText(this@DetailActivity, "Fail fetching from database onFailure", Toast.LENGTH_LONG).show()
+                    Log.d("GET ALAMAT ITEMS FAIL", t.toString())
+                }
+            })
     }
 
 
     // Membuat fungsi menghapus alamat dengan mengambil id
     private fun deleteAlamat(id: String) {
-       @TODO
+       RetrofitClient.instance.deleteAlamatDetail(id)
+            .enqueue(object: Callback<com.example.alamat_user.data.Response> {
+                override fun onResponse(
+                    call: Call<com.example.alamat_user.data.Response>,
+                    response: Response<com.example.alamat_user.data.Response>
+                ) {
+                    if (response.code() == 200) {
+                        val resp = response.body()
+                        if (resp!!.error) Toast.makeText(this@DetailActivity, resp.message + ", please try again later", Toast.LENGTH_LONG).show()
+                        else {
+                            Toast.makeText(this@DetailActivity, resp.message, Toast.LENGTH_SHORT).show()
 
-       //Bagian vita
+                            startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+
+                            this@DetailActivity.finish()
+                        }
+                    } else {
+                        Toast.makeText(this@DetailActivity, "Something wrong on server", Toast.LENGTH_LONG).show()
+                        Log.d("DELETE ALAMAT (${response.code()})", response.body().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<com.example.alamat_user.data.Response>, t: Throwable) {
+                    Toast.makeText(this@DetailActivity, "Something wrong on server...", Toast.LENGTH_LONG).show()
+                    Log.d("DELETE ADDRESS FAIL", t.toString())
+                }
+            })
     }
 }
