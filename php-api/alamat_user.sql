@@ -45,8 +45,8 @@ CREATE TABLE `alamat_user` (
 
 INSERT INTO `alamat_user` (`id`, `nama`, `nohp`, `provinsi`, `kota`, `kecamatan`, `kodepos`, `namajalan`, `detailalamat`) VALUES
 (1, 'Steven Manurung', 2147483647, 'Sumatera Utara', 'Medan', 'Medan Perjuangan', 20236, 'jl. perjuangan', 'yang ada pohon mangga'),
-(2, 'aafsdad', 2131231, 'zsdasdasdas', 'dasdasda', 'sdasdas', 2131231, 'dasdasdas', 'asdasdada'),
-(3, 'sdfsdf', 812640982, 'sdfsdfs', 'asd', 'adsas', 232, 'asdasd', 'asdasdas');
+(2, 'Trifine', 2131231, 'Sumatera Utara', 'Karo', 'Kabanjahe', 22113, 'jl.veteran', 'pagar hitam'),
+(3, 'Vita', 812640982, 'Riau', 'Bintan', 'Lobam', 23112, 'jl. cendrawasih', 'depan gedung putih');
 
 --
 -- Indexes for dumped tables
