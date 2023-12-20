@@ -37,12 +37,15 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    // Membuat fungsi untuk mengambil detail dari data alamat
     private fun retrieveAlamatDetail(id: String) {
       @TODO
 
       //Bagian vita
     }
 
+
+    // Membuat fungsi menghapus alamat dengan mengambil id
     private fun deleteAlamat(id: String) {
        @TODO
 
