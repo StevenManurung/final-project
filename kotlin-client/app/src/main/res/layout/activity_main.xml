@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/darkblue"
+            app:popupTheme="@style/Alamat_user.PopupOverlay"
+            app:title="Beranda"
+            app:titleTextColor="#fafafa" />
+    </com.google.android.material.appbar.AppBarLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
