@@ -3,6 +3,7 @@
   
   $result = [];
 
+  // menampilkan data alamat user berdasarkan id
   $query = "SELECT id AS id,
             nama AS nama, 
             nohp AS nohp, 

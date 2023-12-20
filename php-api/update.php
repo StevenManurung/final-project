@@ -11,6 +11,7 @@
   $namajalan = $_POST['namajalan'];
   $detailalamat = $_POST['detailalamat'];
 
+  // Mengupadte alamat user dengan ID
   $query = "UPDATE alamat_user SET 
             nama = '$nama',
             nohp = '$nohp',
