@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val id: String = intent.getStringExtra("idAlamat").toString()
+        val id = intent.getStringExtra("idAlamat").toString()
 
         retrieveAlamatDetail(id)
 
