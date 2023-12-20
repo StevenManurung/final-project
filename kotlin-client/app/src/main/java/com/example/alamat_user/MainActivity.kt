@@ -54,5 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun retrieveAlamatt() {
       @TODO
+
+      // Bagian Dohan
     }
 }
