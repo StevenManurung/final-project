@@ -3,6 +3,7 @@
   
   $id = $_GET['id'];
 
+  //menampilkan detail alamat dari user berdasarkan id
   $query = "SELECT id AS id,
             nama AS nama, 
             nohp AS nohp, 

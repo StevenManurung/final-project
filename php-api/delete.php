@@ -3,6 +3,7 @@
   
   $id = $_POST['id'];
 
+  //menghapus alamat user berdasarkan id
   $query = "DELETE FROM alamat_user WHERE id = '$id';";
 
   $query_run = mysqli_query($koneksi, $query);
