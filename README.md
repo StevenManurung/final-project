@@ -38,3 +38,18 @@ Adress Book App is currently extended with the following Dependencies.
 | Recycler View |
 | App Compat |
 | Constraint Layout |
+
+
+## External Font
+
+Adress Book APp is currently extended with the following Fonts.
+| Font | README |
+| ------ | ------ |
+| Bangers | [https://fonts.google.com/specimen/Bangers][PlDb] |
+| Cascadia | [https://www.fontsquirrel.com/fonts/cascadia-code][PlDb] |
+| Poppins | [https://fonts.google.com/specimen/Poppins][PlDb] |
+| RetroActive | [https://www.dafont.com/retroactive.font][PlDb] |
+
+## Kesimpulan
+Program dapat melakukan operasi CRUD buku alamat dengan baik serta Program menerapkan seluruh materi pada pembelajaran pemrograman mobile.
+
