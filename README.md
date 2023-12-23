@@ -27,3 +27,14 @@ Instructions on how to use them in your own application are linked below.
 | Plugin | README |
 | ------ | ------ |
 | Parcelize | [https://developer.android.com/kotlin/parcelize][PlDb] |
+
+## Dependencies
+
+Adress Book App is currently extended with the following Dependencies.
+| Dependencies |
+| ------ | 
+| Circle Image View |
+| Retrofit |
+| Recycler View |
+| App Compat |
+| Constraint Layout |
